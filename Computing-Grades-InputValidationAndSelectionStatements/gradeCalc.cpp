@@ -20,20 +20,19 @@
 
 bool getValidNumber(string prompt, double *value, const double min, const double max) {
     double userInput;
-    cout << prompt;
-    cin >> userInput;
-    if (cin.good() == false) {
-        cin.clear();
-        cin.ignore(255, '\n');
-        cout << "Input Data Terminated." << endl<<endl;
-        return false;
-    }
-    while (userInput < min || userInput > max) {
-        cout << "Number is out of range. Try again." << endl;
-        // getValidNumber(prompt, value,min,max); tempting
+    do { 
         cout << prompt;
         cin >> userInput;
-    }
+        if (cin.good() == false) {
+            cin.clear();
+            cin.ignore(255, '\n');
+            cout << "Input Data Terminated." << endl << endl;
+            return false;
+        }
+        if (userInput < min || userInput > max) {
+            cout << "Number is out of range. Try again." << endl;
+        }
+    } while (userInput < min || userInput > max);
     *value = userInput;
     return true;
 }
@@ -48,24 +47,24 @@ string gradeFromMark(const double mark) {
     string grade;
     if (mark >= 90.0 && mark <= 100.0) {
         grade = "A+";
-    } else if (mark >= 85.0 && mark <= 89.9) {
+    } else if (mark >= 85.0 && mark < 90.0) {
         grade = "A";
-    } else if (mark >= 80.0 && mark <= 84.9) {
+    } else if (mark >= 80.0 && mark < 85.0) {
         grade = "A-";
-    } else if (mark >= 77.0 && mark <= 79.9) {
+    } else if (mark >= 77.0 && mark < 80.0) {
         grade = "B+";
-    } else if (mark >= 73.0 && mark <= 76.9) {
+    } else if (mark >= 73.0 && mark < 77.0) {
         grade = "B";
-    } else if (mark >= 70.0 && mark <= 72.9) {
+    } else if (mark >= 70.0 && mark < 73.0) {
         grade = "B-";
-    } else if (mark >= 65.0 && mark <= 69.9) {
+    } else if (mark >= 65.0 && mark < 70) {
         grade = "C+";
-    } else if (mark >= 60.0 && mark <= 64.9) {
+    } else if (mark >= 60.0 && mark < 65) {
         grade = "C";
-    } else if (mark >= 50.0 && mark <= 59.9) {
+    } else if (mark >= 50.0 && mark < 60) {
         grade = "D";
-    } else if (mark >= 0.0 && mark <= 49.9) {
+    } else if (mark >= 0.0 && mark < 50) {
         grade = "F";
     }
     return grade;
-    }
+}

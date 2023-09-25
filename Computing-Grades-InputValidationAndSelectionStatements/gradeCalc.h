@@ -13,7 +13,7 @@
 
 #ifndef GRADECALC_H
 #define GRADECALC_H
-
+// hpp type for cpp
 #include <cstdlib>
 #include <iostream>
 

@@ -11,8 +11,9 @@
  * Created on September 15, 2023, 8:21 a.m.
  */
 
-#include <cstdlib>
 #include <iostream>
+#include <cstdlib>
+#include <math.h>
 #include <string>
 #include "gradeCalc.h"
 
@@ -38,7 +39,7 @@ int main(int argc, char** argv) {
         userMark = userMarkInput * (userWeightInput / 100) + userMark;
         userWeight = userWeight + userWeightInput;
     }
-    if(userWeight<99.9 || userWeight>100.1){
+    if(fabs(userWeight-100)>0.1){
         cout<<"Weights did not add up to 100%.  Try again."<< endl;
     }else{
         cout << "The mark is: " << userMark << " and grade is : " << gradeFromMark(userMark) << endl;
