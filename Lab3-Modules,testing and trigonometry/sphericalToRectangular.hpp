@@ -16,7 +16,7 @@
 
 #include <cstdlib>
 #include <iostream>
-#include<math.h>
+#include <math.h>
 
 using namespace std;
 
@@ -26,11 +26,15 @@ typedef struct {
     double inclination;
 }   SphericalCoords;
 
+inline double getRadius(double x, double y, double z=0) {
+    return sqrt(x * x + y * y + z * z);
+}
+
 // sphericalToRectangular returns a unique, persistent array [x,y,z] 
-double *sphericalToRectangular (double r, double azimuth, double inclination);
+double *sphericalToRectangular (double r, double azimuth, double inclination=0);
 
 // Returns a SphericalCoords struct.. Be sure to declare one, put data in it, and return it!
-SphericalCoords rectangularToSpherical (double x, double y, double z ); // doesn't use the z. call as rectangularToSpherical(2.0,56)
+SphericalCoords rectangularToSpherical (double x, double y, double z=0 ); // doesn't use the z. call as rectangularToSpherical(2.0,56)
 // third parameter is a default value;
 #endif /* SPHERICALTORECTANGULAR_HPP */
 
