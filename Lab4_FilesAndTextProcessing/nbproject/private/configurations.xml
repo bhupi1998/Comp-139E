@@ -24,13 +24,11 @@
       </nativedebugger>
       <runprofile version="9">
         <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH} textAndNumbers.txt"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
-          <runcommandpicklistitem>"${OUTPUT_PATH} "</runcommandpicklistitem>
-          <runcommandpicklistitem>"${OUTPUT_PATH} text"</runcommandpicklistitem>
-          <runcommandpicklistitem>"${OUTPUT_PATH} text "</runcommandpicklistitem>
-          <runcommandpicklistitem>"${OUTPUT_PATH} textAndNumbers.txt "</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" textAndNumbers.txt</runcommandpicklistitem>
         </runcommandpicklist>
-        <runcommand>"${OUTPUT_PATH} textAndNumbers.txt "</runcommand>
+        <runcommand>"${OUTPUT_PATH}" textAndNumbers.txt</runcommand>
         <rundir></rundir>
         <buildfirst>true</buildfirst>
         <console-type>1</console-type>
