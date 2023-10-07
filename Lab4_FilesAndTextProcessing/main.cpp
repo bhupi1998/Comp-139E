@@ -33,16 +33,21 @@ int main(int argc, char** argv) {
     outputFile.open("OutputFile.txt", ios::app);
 
     char nextCharacter;
-    string line;
     char characterRead;
     while (!inputFile.eof()) {
+        string line;
         nextCharacter = inputFile.peek();
-        if (isblank(nextCharacter) || nextCharacter == '/\n' ) {
+        if (isblank(nextCharacter) || nextCharacter == '\n') {
             inputFile.get(characterRead);
-        }
-        else if (isalpha(nextCharacter) || ispunct(nextCharacter)) {
-            getline(inputFile, line, ' ');
+        } else if (isalpha(nextCharacter) || ispunct(nextCharacter)) {
+            //getline(inputFile, line, ' '); // falls apart once it hits a \n moving to using
+            while (isalpha(nextCharacter) || ispunct(nextCharacter)) {
+                inputFile.get(characterRead);
+                line = line + characterRead;
+                nextCharacter = inputFile.peek();
+            }
             cout << "Found a " << line.size() << " character word: " << line << endl;
+            outputFile << "Found a " << line.size() << " character word: " << line << endl;
         } else if (isdigit(nextCharacter)) {
             int stringInteger = 0;
             string integerString;
@@ -51,8 +56,10 @@ int main(int argc, char** argv) {
                 nextCharacter = inputFile.peek();
                 integerString = integerString + characterRead;
             }
-            cout << "Found an " << integerString.size() << " integer: " << integerString << endl;
-        } 
+            stringInteger = stoi(integerString);
+            cout << "Found a " << integerString.size() << " integer: " << stringInteger << endl;
+            outputFile << "Found a " << integerString.size() << " integer: " << stringInteger << endl;
+        }
     }
 
     inputFile.close();
