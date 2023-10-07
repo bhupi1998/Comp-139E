@@ -38,7 +38,17 @@ int main(int argc, char** argv) {
         nextCharacter = inputFile.peek();
         if (isalpha(nextCharacter)) {
             getline(inputFile, line, ' ');
-            cout << line << '\n';
+            cout<< "Found a "<< line.size()<<" character word: "<<line<<endl;
+        }else if (isdigit(nextCharacter)) {
+            int stringInteger=0;
+            string integerString;
+            while(isdigit(nextCharacter)){
+                integerString =  getc(inputFile);
+                nextCharacter = inputFile.peek();
+            }
+            cout<< "Found an "<< integerString.size()<<" integer: "<<integerString<<endl;
+        }else if(isblank(nextCharacter)){
+        getline(inputFile, line, ' '); //to catch a double space
         }
     }
 
