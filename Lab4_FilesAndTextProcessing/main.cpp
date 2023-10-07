@@ -34,22 +34,25 @@ int main(int argc, char** argv) {
 
     char nextCharacter;
     string line;
+    char characterRead;
     while (!inputFile.eof()) {
         nextCharacter = inputFile.peek();
-        if (isalpha(nextCharacter)) {
-            getline(inputFile, line, ' ');
-            cout<< "Found a "<< line.size()<<" character word: "<<line<<endl;
-        }else if (isdigit(nextCharacter)) {
-            int stringInteger=0;
-            string integerString;
-            while(isdigit(nextCharacter)){
-                integerString =  getc(inputFile);
-                nextCharacter = inputFile.peek();
-            }
-            cout<< "Found an "<< integerString.size()<<" integer: "<<integerString<<endl;
-        }else if(isblank(nextCharacter)){
-        getline(inputFile, line, ' '); //to catch a double space
+        if (isblank(nextCharacter) || nextCharacter == '/\n' ) {
+            inputFile.get(characterRead);
         }
+        else if (isalpha(nextCharacter) || ispunct(nextCharacter)) {
+            getline(inputFile, line, ' ');
+            cout << "Found a " << line.size() << " character word: " << line << endl;
+        } else if (isdigit(nextCharacter)) {
+            int stringInteger = 0;
+            string integerString;
+            while (isdigit(nextCharacter)) {
+                inputFile.get(characterRead);
+                nextCharacter = inputFile.peek();
+                integerString = integerString + characterRead;
+            }
+            cout << "Found an " << integerString.size() << " integer: " << integerString << endl;
+        } 
     }
 
     inputFile.close();
