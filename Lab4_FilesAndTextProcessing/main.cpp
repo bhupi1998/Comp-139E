@@ -12,9 +12,9 @@ using namespace std;
 int main(int argc, char** argv) {
     try //just wanted to practice try catch exception handling
     {
-        if (argc < 2) {
+        if (argc < 3) {
             throw 0;
-        } else if (argc > 2) {
+        } else if (argc > 3) {
             throw 1;
         }
     } catch (int error) {
@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
     ofstream outputFile;
 
     inputFile.open(argv[1]);
-    outputFile.open("OutputFile.txt", ios::app);
+    outputFile.open(argv[2], ios::app);
 
     char nextCharacter;
     char characterRead;
