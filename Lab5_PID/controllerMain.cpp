@@ -26,11 +26,11 @@ int main(int argc, const char * argv[]) {
     
     Controller *controller;
     // You can comment out these two lines after you write your code. (But you don't have to)
-    ProportionalController propController(0.3);
-    controller = &propController;
+//    ProportionalController propController(0.3);
+//    controller = &propController;
     // Use these two lines after you write your code.
-    //    PID_Controller pidController(0.5, 25, 2.5);
-    //    controller = &pidController;  // make the pointer point at the object named pidController
+       PID_Controller pidController(0.5, 25, 2.5);
+       controller = &pidController;  // make the pointer point at the object named pidController
     
     double y = p.plantResponse(0.0);  // Initial output of plant with input of zero
     // Set up the step input to the plant

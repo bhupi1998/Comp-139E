@@ -14,7 +14,23 @@
 #ifndef PID_CONTROLLER_HPP
 #define PID_CONTROLLER_HPP
 
+#include "Controller.hpp"
 
+class PID_Controller: public Controller{
+private: //initialize as 0
+    const double kc;
+    const double ti ;
+    const double td;
+    double q=0; // current value of integral
+    double prevy=0; // previous y
+public:
+    PID_Controller(double c, double i, double d){
+        kc = c;
+        ti = i;
+        td = d;
+    }
+    double controlStep(double plantOutput, double setpoint);
+};
 
 #endif /* PID_CONTROLLER_HPP */
 

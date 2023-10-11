@@ -28,6 +28,7 @@
           <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" textAndNumbers.txt</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" textAndNumbers.txt </runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" textAndNumbes.txt outputFile.txt</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" textAndNumbers.txt outputFile.txt</runcommandpicklistitem>
         </runcommandpicklist>
         <runcommand>"${OUTPUT_PATH}" textAndNumbers.txt outputFile.txt</runcommand>

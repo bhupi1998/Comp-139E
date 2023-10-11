@@ -3,6 +3,7 @@
 #include <libgen.h>
 #include <fstream>
 #include <string>
+#include <ios>
 
 using namespace std;
 
@@ -29,11 +30,24 @@ int main(int argc, char** argv) {
     ifstream inputFile;
     ofstream outputFile;
 
-    inputFile.open(argv[1]);
+   
+    try{
+         inputFile.open(argv[1]);
+        if(inputFile.fail()){
+            throw EXIT_FAILURE;
+        }
+    }catch(int error){
+        if(error){
+            cout <<"Could not open file"<<endl;
+            exit(EXIT_FAILURE);
+        }
+    }
     outputFile.open(argv[2], ios::app);
 
     char nextCharacter;
     char characterRead;
+    
+    // input >>word
     while (!inputFile.eof()) {
         string line;
         nextCharacter = inputFile.peek();
