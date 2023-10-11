@@ -7,10 +7,10 @@
 
 
 // Implementation of controlStep()
-double pidController::controlStep (const double plantOutput, double setpoint) {
+double PID_Controller::controlStep (const double plantOutput, double setpoint) {
     double error = setpoint - plantOutput;
-    q = q+ error;
-    double response = setpoint + kc * (error+(1/ti)*(q)-(td)*(setpoint - prevy));
-    prevy = setpoint; // updating previous y value
+    q = (0.9*q)+ (0.1*error);
+    double response = setpoint + kc * (error+((1/ti)*(q))-((td)*(plantOutput- prevy)));
+    prevy = plantOutput; // updating previous y value
     return response;
 }

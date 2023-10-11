@@ -24,11 +24,7 @@ private: //initialize as 0
     double q=0; // current value of integral
     double prevy=0; // previous y
 public:
-    PID_Controller(double c, double i, double d){
-        kc = c;
-        ti = i;
-        td = d;
-    }
+    PID_Controller(double c, double i, double d) :kc(c), ti(i), td(d){}
     double controlStep(double plantOutput, double setpoint);
 };
 
