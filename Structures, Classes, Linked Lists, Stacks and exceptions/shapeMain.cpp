@@ -13,6 +13,7 @@
 #include <cstdlib>
 #include "Rectangle.hpp"
 #include "Circle.hpp"
+#include "StackGiven.hpp"
 
 int main(int argc, char* argv[]) {
     const int N_SHAPES = 3;
@@ -26,26 +27,27 @@ int main(int argc, char* argv[]) {
      * Since Shape is the base class, we can point to any derived object,
      * i.e., Shape is polymorphic
      */
-    Shape *shapes[N_SHAPES];
-    shapes[0] = &c1;
-    shapes[1] = &r1;
-    shapes[2] = &c2;
+    Stack<Shape*> shapes;
+    //Shape *shapes[N_SHAPES];
+    shapes.push(&c1);
+    //shapes.push(&r1); 
+    shapes.push(&c2);
 
-    c1.moveTo(27, 36);         // move the first circle
-    shapes[2]->moveTo(17, 4);  // this will move the second circle
-
-    /* Draw all of the Shapes.
-     * Since draw() is a virtual function, binding to draw() will be
-     * done at run-time, resulting in the correct draw() for each Shape
-     */
-    for (int i = 0; i < N_SHAPES; i++) {
-      // Each shape knows how to draw itself
-      shapes[i]->draw();
-      // Each shape knows how to print itself using printMe
-      // which was overloaded to get polymorphism from the
-      // Non-member function <<
-      std::cout << *shapes[i] << std::endl;
-    }
+//    c1.moveTo(27, 36);         // move the first circle
+//    shapes[2]->moveTo(17, 4);  // this will move the second circle
+//
+//    /* Draw all of the Shapes.
+//     * Since draw() is a virtual function, binding to draw() will be
+//     * done at run-time, resulting in the correct draw() for each Shape
+//     */
+//    for (int i = 0; i < N_SHAPES; i++) {
+//      // Each shape knows how to draw itself
+//      shapes.pop()->draw();
+//      // Each shape knows how to print itself using printMe
+//      // which was overloaded to get polymorphism from the
+//      // Non-member function <<
+//      std::cout << shapes.size() << std::endl;
+//    }
 
     return EXIT_SUCCESS;
 }

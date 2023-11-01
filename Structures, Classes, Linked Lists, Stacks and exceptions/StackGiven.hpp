@@ -40,15 +40,15 @@ public:
     void push(T item) {
         // creating stack node
         stackNode *node = new StackNode;
-        node.theItem = item;
+        //node->theItem = item;
         if (!count) { //stack is empty, we're adding the first element
-            topOfStack.next = node;
+            topOfStack = node;
         } else {
-            node.next = topOfStack.next;
+            node->next = topOfStack;
             ;
-            topOfStack.next = node;
+            topOfStack = node;
         }
-        count++;
+//        count++;
     }
 
     /**
