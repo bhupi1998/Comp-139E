@@ -23,6 +23,7 @@ int main(int argc, const char * argv[]) {
     const double num[] = {0.023018459508916,   0.046036919017832,   0.023018459508916};
     const double den[] = {1.000000000000000,  -1.618519638615533,   0.710593476651197};
     Plant p(num, den, 2);  // Instantiate this plant
+
     
     Controller *controller;
     // You can comment out these two lines after you write your code. (But you don't have to)

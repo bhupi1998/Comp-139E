@@ -60,10 +60,9 @@ public:
         if (!count) {
             throw StackException("Stack is empty!!"); // Why does this work???
         } else {
-            stackNode *nodeToDelete = new StackNode;
+            stackNode *nodeToDelete = topOfStack;
             count--;
             T item = topOfStack->theItem;
-            nodeToDelete = topOfStack;
             topOfStack = topOfStack->next;
             delete nodeToDelete;
             return item;
@@ -80,7 +79,7 @@ public:
         if(!count){
         throw StackException("Stack is empty!!");
         }
-        return topOfStack->next->theItem;
+        return topOfStack->theItem;
     }
 
     /**

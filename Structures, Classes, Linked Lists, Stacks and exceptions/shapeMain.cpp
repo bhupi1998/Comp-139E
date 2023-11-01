@@ -19,7 +19,7 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    const int N_SHAPES = 4;
+    const int N_SHAPES = 3;
     Circle c1(20.5, 4, 10);
     Rectangle r1(10, 20.7, 8, 8);
     Circle c2(11, 10, 5);

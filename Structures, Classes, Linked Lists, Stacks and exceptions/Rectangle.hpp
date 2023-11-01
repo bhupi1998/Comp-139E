@@ -47,7 +47,7 @@ public:
 };
 
 class Square: public Rectangle {
-
+    Square(){};
 };
 #endif	/* RECTANGLE_HPP */
 
