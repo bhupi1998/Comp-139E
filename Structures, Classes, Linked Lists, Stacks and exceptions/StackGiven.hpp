@@ -58,7 +58,7 @@ public:
      */
     T pop(void) {
         if (!count) {
-            //throw exception here
+            throw StackException("Stack is empty!!"); // Why does this work???
         } else {
             stackNode *nodeToDelete = new StackNode;
             count--;
@@ -77,6 +77,9 @@ public:
      * @return
      */
     T top(void) {
+        if(!count){
+        throw StackException("Stack is empty!!");
+        }
         return topOfStack->next->theItem;
     }
 

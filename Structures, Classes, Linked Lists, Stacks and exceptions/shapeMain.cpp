@@ -11,12 +11,15 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <string>
 #include "Rectangle.hpp"
 #include "Circle.hpp"
 #include "StackGiven.hpp"
 
+using namespace std;
+
 int main(int argc, char* argv[]) {
-    const int N_SHAPES = 3;
+    const int N_SHAPES = 4;
     Circle c1(20.5, 4, 10);
     Rectangle r1(10, 20.7, 8, 8);
     Circle c2(11, 10, 5);
@@ -42,11 +45,17 @@ int main(int argc, char* argv[]) {
 //     */
     for (int i = 0; i < N_SHAPES; i++) {
 //      // Each shape knows how to draw itself
+        try{
       shapes.pop()->draw();
+      shapes.top(); // here so that it can throw an exception. useless otherwise.
 //      // Each shape knows how to print itself using printMe
 //      // which was overloaded to get polymorphism from the
 //      // Non-member function <<
       std::cout << shapes.size() << std::endl;
+        }
+        catch(const StackException& issue){ //What
+            cout << issue.what()<<endl;
+        }
     }
 
     return EXIT_SUCCESS;
