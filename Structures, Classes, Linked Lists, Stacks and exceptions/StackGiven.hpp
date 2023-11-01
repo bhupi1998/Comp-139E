@@ -40,7 +40,7 @@ public:
     void push(T item) {
         // creating stack node
         stackNode *node = new StackNode;
-        //node->theItem = item;
+        node->theItem = item;
         if (!count) { //stack is empty, we're adding the first element
             topOfStack = node;
         } else {
@@ -62,10 +62,11 @@ public:
         } else {
             stackNode *nodeToDelete = new StackNode;
             count--;
+            T item = topOfStack->theItem;
             nodeToDelete = topOfStack;
             topOfStack = topOfStack->next;
             delete nodeToDelete;
-            return topOfStack->next->theItem;
+            return item;
         }
     }
 
