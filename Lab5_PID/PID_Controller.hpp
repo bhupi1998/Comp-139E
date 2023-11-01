@@ -21,6 +21,7 @@ private: //initialize as 0
     const double kc;
     const double ti ;
     const double td;
+    // put in constructor\/
     double q=0; // current value of integral
     double prevy=0; // previous y
 public:
