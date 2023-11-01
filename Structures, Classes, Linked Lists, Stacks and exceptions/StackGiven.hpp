@@ -45,10 +45,9 @@ public:
             topOfStack = node;
         } else {
             node->next = topOfStack;
-            ;
             topOfStack = node;
         }
-//        count++;
+        count++;
     }
 
     /**
@@ -63,8 +62,8 @@ public:
         } else {
             stackNode *nodeToDelete = new StackNode;
             count--;
-            nodeToDelete = topOfStack.next;
-            topOfStack.next = topOfStack.next->next;
+            nodeToDelete = topOfStack;
+            topOfStack = topOfStack->next;
             delete nodeToDelete;
             return topOfStack->next->theItem;
         }

@@ -30,24 +30,24 @@ int main(int argc, char* argv[]) {
     Stack<Shape*> shapes;
     //Shape *shapes[N_SHAPES];
     shapes.push(&c1);
-    //shapes.push(&r1); 
+    shapes.push(&r1); 
     shapes.push(&c2);
 
-//    c1.moveTo(27, 36);         // move the first circle
-//    shapes[2]->moveTo(17, 4);  // this will move the second circle
+    c1.moveTo(27, 36);         // move the first circle
+    c2.moveTo(17, 4);  // this will move the second circle
 //
 //    /* Draw all of the Shapes.
 //     * Since draw() is a virtual function, binding to draw() will be
 //     * done at run-time, resulting in the correct draw() for each Shape
 //     */
-//    for (int i = 0; i < N_SHAPES; i++) {
+    for (int i = 0; i < N_SHAPES; i++) {
 //      // Each shape knows how to draw itself
-//      shapes.pop()->draw();
+      shapes.pop()->draw();
 //      // Each shape knows how to print itself using printMe
 //      // which was overloaded to get polymorphism from the
 //      // Non-member function <<
-//      std::cout << shapes.size() << std::endl;
-//    }
+      std::cout << shapes.size() << std::endl;
+    }
 
     return EXIT_SUCCESS;
 }
