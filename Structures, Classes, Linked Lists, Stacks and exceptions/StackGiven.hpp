@@ -39,7 +39,7 @@ public:
      */
     void push(T item) {
         // creating stack node
-        stackNode *node = new StackNode;
+        stackNode node; //= new StackNode;
         node->theItem = item;
         if (!count) { //stack is empty, we're adding the first element
             topOfStack = node;
